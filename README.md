@@ -19,10 +19,46 @@ Random Forest dipilih karena kemampuannya dalam menangani data dengan dimensi ti
 
 ### Requirements
 
-Pastikan Anda memiliki Python 3.7 atau versi yang lebih baru. Install library yang diperlukan dengan menjalankan:
+Pastikan Anda memiliki Python 3.7 atau versi yang lebih baru.
+
+### Membuat Virtual Environment
+
+Sangat disarankan untuk menggunakan virtual environment untuk mengisolasi dependencies project ini:
+
+#### Menggunakan venv (Python built-in)
 
 ```bash
-pip install pandas numpy scikit-learn nltk matplotlib seaborn wordcloud
+# Membuat virtual environment
+python -m venv sentiment-env
+
+# Aktivasi virtual environment
+# Windows
+sentiment-env\Scripts\activate
+
+# macOS/Linux
+source sentiment-env/bin/activate
+```
+
+#### Menggunakan conda
+
+```bash
+# Membuat virtual environment dengan conda
+conda create -n sentiment-env python=3.9
+
+# Aktivasi environment
+conda activate sentiment-env
+```
+
+### Install Dependencies
+
+Setelah virtual environment aktif, install library yang diperlukan:
+
+```bash
+# Install dari requirements.txt (recommended)
+pip install -r requirements.txt
+
+# Atau install manual
+pip install pandas numpy scikit-learn nltk matplotlib seaborn wordcloud jupyter beautifulsoup4 requests
 ```
 
 ### Instalasi NLTK Data
@@ -40,30 +76,32 @@ nltk.download('omw-1.4')
 ### Clone Repository
 
 ```bash
-git clone https://github.com/username/sentiment-analysis-random-forest.git
-cd sentiment-analysis-random-forest
+git clone https://github.com/umartils/Sentimen-Analisis-Random-Forest.git
+cd Sentimen-Analisis-Random-Forest
+```
+
+### Deaktivasi Virtual Environment
+
+Setelah selesai bekerja dengan project, Anda dapat menonaktifkan virtual environment:
+
+```bash
+# Untuk venv
+deactivate
+
+# Untuk conda
+conda deactivate
 ```
 
 ## Struktur Project
 
-```
+```bash
 sentiment-analysis-random-forest/
 ├── data/
-│   ├── raw/
-│   │   └── dataset.csv
-│   └── processed/
-│       └── cleaned_data.csv
-├── src/
-│   ├── preprocessing.py
-│   ├── feature_extraction.py
-│   ├── model.py
-│   └── evaluation.py
+│   ├── data_scraping.csv
 ├── notebooks/
-│   └── sentiment_analysis_exploration.ipynb
-├── models/
-│   └── random_forest_model.pkl
+│   └── Data_Scraping.ipynb
+│   └── Training_Model.ipynb
 ├── requirements.txt
-├── main.py
 └── README.md
 ```
 
@@ -202,7 +240,6 @@ Dataset memiliki struktur sebagai berikut:
 ### Distribusi Sentimen
 
 Dataset menunjukkan distribusi sentimen sebagai berikut:
-
 - **Positive**: ~45% (rating 4-5, review positif)
 - **Negative**: ~35% (rating 1-2, review negatif)  
 - **Neutral**: ~20% (rating 3, review netral)
@@ -210,7 +247,6 @@ Dataset menunjukkan distribusi sentimen sebagai berikut:
 ### Preprocessing Data
 
 Data mentah hasil scraping telah melalui tahap preprocessing meliputi:
-
 - Pembersihan teks dari karakter khusus dan emoji
 - Normalisasi huruf (lowercase)
 - Penghapusan duplikasi review
@@ -227,9 +263,8 @@ Data mentah hasil scraping telah melalui tahap preprocessing meliputi:
 ### Dataset Alternatif
 
 Selain dataset Indodax, project ini juga dapat bekerja dengan dataset sentiment analysis lainnya seperti:
-
 - Amazon Product Reviews
-- IMDB Movie Reviews
+- IMDB Movie Reviews  
 - Twitter Sentiment Dataset
 - Indonesian Sentiment Dataset
 
@@ -238,7 +273,6 @@ Pastikan data memiliki format yang sesuai dengan struktur yang dijelaskan di bag
 ## Performance
 
 Model Random Forest pada project ini umumnya mencapai:
-
 - Accuracy: 85-92%
 - Precision: 83-90%
 - Recall: 84-91%
@@ -257,6 +291,5 @@ Project ini dilisensikan under MIT License. Lihat file `LICENSE` untuk detail le
 ## Kontak
 
 Jika ada pertanyaan atau saran, silakan hubungi:
-
-- Email: umartilmisani48@gmail.com
-- GitHub: [@username](https://github.com/umartils)
+- Email: your.email@example.com
+- GitHub: [@username](https://github.com/username)
